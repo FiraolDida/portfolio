@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { Cursor, useTypewriter } from 'react-simple-typewriter';
@@ -21,7 +22,9 @@ function Hero({ pageInfo }: Props) {
   return (
     <div className='h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden'>
         <BackgroundCircles />
-        <img className='relative rounded-full h-32 w-32 mx-auto object-cover' src={urlFor(pageInfo?.heroImage).url()} alt='' />
+        <div className='relative rounded-full h-32 w-32 mx-auto object-cover'>
+            <Image className='rounded-full' src={urlFor(pageInfo?.heroImage).url()} layout='fill' alt='' objectFit='contain'/>
+        </div>
         <div className='z-20'>
             <h2 className='text-sm uppercase text-gray-500 pb-2 tracking-[15px]'>{ pageInfo?.role}</h2>
             <h1 className='text-5xl lg:text-6xl font-semibold px-10'>
